@@ -1,0 +1,13 @@
+{
+  "Name": "More Mod Logs",
+  "Version": "0.0.2",
+  "Id": "MoreModLogs",
+  "MinimumGameVersion": "0.6.7.0",
+  "Description": "Additional logging for code that loads mods",
+  "RequiredMods": [
+    {
+      "Id": "Harmony",
+      "MinimumVersion": "2.3.3"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+bin/
+obj/
+zips/
+Harmony
+Timberborn
+*.csproj.user
+.vs/*/xs/UserPrefs.xml
