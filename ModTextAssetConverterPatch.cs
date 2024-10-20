@@ -2,6 +2,7 @@
 using System.Reflection;
 using UnityEngine;
 using HarmonyLib;
+using System.Linq;
 
 namespace Mods.SteamUpdateButtons {
 
@@ -13,7 +14,9 @@ namespace Mods.SteamUpdateButtons {
     }
 
     static void Postfix(FileInfo fileInfo, ref TextAsset asset) {
-      asset.name += "_in_" + fileInfo.FullName;
+      if (fileInfo.FullName.ToLower().Split(Path.DirectorySeparatorChar).Contains("localizations")) {
+        asset.name += "_in_" + fileInfo.FullName;
+      }
     }
   }
 }
