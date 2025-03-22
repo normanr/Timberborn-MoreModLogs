@@ -4,7 +4,7 @@ using HarmonyLib;
 using Timberborn.Modding;
 using Timberborn.ModManagerScene;
 
-namespace Mods.SteamUpdateButtons {
+namespace Mods.MoreModLogs {
 
   [HarmonyPatch(typeof(ModCodeStarter))]
   [HarmonyPatch("StartMod")]

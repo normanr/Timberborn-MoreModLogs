@@ -1,10 +1,10 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using HarmonyLib;
-using System.Linq;
 
-namespace Mods.SteamUpdateButtons {
+namespace Mods.MoreModLogs {
 
   [HarmonyPatch]
   static class ModTextAssetConverterPatch {
