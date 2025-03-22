@@ -41,6 +41,10 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.BlueprintSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlueprintSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Timberborn.Modding">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Modding.dll</HintPath>
       <Private>false</Private>
@@ -63,6 +67,7 @@
     <Compile Include="Starter.cs" />
     <Compile Include="ModTextAssetConverterPatch.cs" />
     <Compile Include="ModCodeStarterPatch.cs" />
+    <Compile Include="SpecServicePatch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="manifest.json">
