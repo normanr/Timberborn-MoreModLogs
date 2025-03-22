@@ -3,7 +3,7 @@ using UnityEngine;
 using HarmonyLib;
 using Timberborn.ModManagerScene;
 
-namespace Mods.SteamUpdateButtons {
+namespace Mods.MoreModLogs {
   internal class ModStarter : IModStarter {
 
     const string ModName = "More Mod Logs";
