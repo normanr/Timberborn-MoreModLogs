@@ -6,7 +6,7 @@ using Timberborn.ModManagerScene;
 namespace Mods.MoreModLogs {
   internal class ModStarter : IModStarter {
 
-    const string ModName = "More Mod Logs";
+    internal const string ModName = "More Mod Logs";
 
     public void StartMod() {
       StartMod(null);

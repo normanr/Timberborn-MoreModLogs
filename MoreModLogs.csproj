@@ -37,8 +37,16 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\UnityEngine.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>Timberborn\Timberborn_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>Timberborn\Timberborn_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.BlueprintSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlueprintSystem.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="Timberborn.BlueprintSystem">
@@ -57,6 +65,10 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ModManagerScene.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.SingletonSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SingletonSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Harmony">
       <HintPath>Harmony/0Harmony.dll</HintPath>
       <Private>false</Private>
@@ -68,6 +80,8 @@
     <Compile Include="ModTextAssetConverterPatch.cs" />
     <Compile Include="ModCodeStarterPatch.cs" />
     <Compile Include="SpecServicePatch.cs" />
+    <Compile Include="AssetBundlePatch.cs" />
+    <Compile Include="SingletonSystemPatch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="manifest.json">
