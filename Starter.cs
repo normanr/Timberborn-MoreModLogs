@@ -13,12 +13,20 @@ namespace Mods.MoreModLogs {
     }
 
     public void StartMod(IModEnvironment modEnvironment) {
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + ModName + ": Starting from " + (modEnvironment?.ModPath ?? "an unknown location"));
       var start = DateTime.Now;
-      var harmony = new Harmony(ModName);
-      harmony.PatchAll();
-      var duration = DateTime.Now - start;
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + ModName + ": Started in " + duration);
+      try {
+        var harmony = new Harmony(ModName);
+        harmony.PatchAll();
+      }
+      catch {
+        var duration = DateTime.Now - start;
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + ModName + ": Failed to start from " + (modEnvironment?.ModPath ?? "an unknown location") + " after " + duration);
+        throw;
+      }
+      {
+        var duration = DateTime.Now - start;
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + ModName + ": Started from " + (modEnvironment?.ModPath ?? "an unknown location") + " in " + duration);
+      }
     }
   }
 }
