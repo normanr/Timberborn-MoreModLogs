@@ -43,11 +43,11 @@ namespace Mods.MoreModLogs {
     }
 
     private static void Wrap(Action fn) {
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + fn.Method.DeclaringType + "." + fn.Method.Name + "()...");
+      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + fn.Target.GetType() + "." + fn.Method.Name + "()...");
       var __state = DateTime.Now;
       fn();
       var duration = DateTime.Now - __state;
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + fn.Method.DeclaringType + "." + fn.Method.Name + "() executed in " + duration);
+      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + fn.Target.GetType() + "." + fn.Method.Name + "() executed in " + duration);
     }
   }
 }
