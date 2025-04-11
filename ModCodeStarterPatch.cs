@@ -10,13 +10,16 @@ namespace Mods.MoreModLogs {
   [HarmonyPatch("StartMod")]
   static class ModCodeStarterPatch {
     static void Prefix(Mod mod, out DateTime __state) {
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + (mod?.DisplayName ?? "Unknown mod") + ": Starting from " + (mod?.ModDirectory.Path ?? "an unknown location"));
       __state = DateTime.Now;
     }
 
-    static void Postfix(Mod mod, DateTime __state) {
+    static void Finalizer(Mod mod, DateTime __state, Exception __exception) {
       var duration = DateTime.Now - __state;
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + (mod?.DisplayName ?? "Unknown mod") + ": Started in " + duration);
+      if (__exception == null) {
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + (mod?.DisplayName ?? "Unknown mod") + ": Started from " + (mod?.ModDirectory.Path ?? "an unknown location") + " in " + duration);
+      } else {
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + (mod?.DisplayName ?? "Unknown mod") + ": Failed to start from " + (mod?.ModDirectory.Path ?? "an unknown location") + " after " + duration);
+      }
     }
   }
 }
