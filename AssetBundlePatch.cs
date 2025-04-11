@@ -6,18 +6,21 @@ using HarmonyLib;
 namespace Mods.MoreModLogs {
 
   [HarmonyPatch(typeof(AssetBundle))]
-  [HarmonyPatch("LoadFromFile")]
+  [HarmonyPatch(nameof(AssetBundle.LoadFromFile))]
   [HarmonyPatch(new Type[] { typeof(string) } )]
   static class AssetBundlePatch {
 
     static void Prefix(string path, out DateTime __state) {
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + "AssetBundle.LoadFromFile: Loading " + Path.GetFileName(path));
       __state = DateTime.Now;
     }
 
-    static void Postfix(string path, DateTime __state) {
+    static void Finalizer(string path, DateTime __state, AssetBundle __result, Exception __exception) {
       var duration = DateTime.Now - __state;
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + "AssetBundle.LoadFromFile: Loaded in " + duration);
+      if (__exception == null && __result != null) {
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + "AssetBundle.LoadFromFile(" + Path.GetFileName(path) + ") executed in " + duration);
+      } else {
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + "AssetBundle.LoadFromFile(" + Path.GetFileName(path) + ") failed after " + duration);
+      }
     }
   }
 }
