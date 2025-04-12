@@ -23,3 +23,7 @@ Adds log entries for singletons that took longer than 0.1s to load/unload (or fa
 13:10:51 Timberborn.LanguageUI.ChangeLanguageBox.Load() executed in 00:00:00.1436906
 13:10:51 Timberborn.MainMenuScene.MainMenuInitializer.Load() executed in 00:00:00.1567935
 
+Adds a validation check for non-empty WorkshopRandomNeedApplier effect list
+
+15:11:46 LumberMill.Folktails WorkshopRandomNeedApplier has no Effects!?!
+
