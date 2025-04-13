@@ -27,3 +27,7 @@ Adds a validation check for non-empty WorkshopRandomNeedApplier effect list
 
 15:11:46 LumberMill.Folktails WorkshopRandomNeedApplier has no Effects!?!
 
+Adds a log entry when failing to load an entity from a saved game
+
+15:12:31 WorldEntitiesLoader.LoadEntity(CordialFertilizerDump.FolkTails) failed with an exception
+
