@@ -15,7 +15,7 @@ namespace Mods.MoreModLogs {
 
     static void Postfix(FileInfo fileInfo, ref TextAsset asset) {
       if (fileInfo.FullName.ToLower().Split(Path.DirectorySeparatorChar).Contains("localizations")) {
-        asset.name += "_in_" + fileInfo.FullName;
+        asset.name += "_in_" + UserDataSanitizer.Sanitize(fileInfo.FullName);
       }
     }
   }
