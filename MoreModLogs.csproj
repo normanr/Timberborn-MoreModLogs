@@ -63,6 +63,7 @@
     <Compile Include="Starter.cs" />
     <Compile Include="ModTextAssetConverterPatch.cs" />
     <Compile Include="ModCodeStarterPatch.cs" />
+    <Compile Include="UserDataSanitizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="manifest.json">
