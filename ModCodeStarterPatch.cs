@@ -15,11 +15,13 @@ namespace Mods.MoreModLogs {
     }
 
     static void Finalizer(Mod mod, DateTime __state, Exception __exception) {
+      var displayName = mod?.DisplayName ?? "Unknown mod";
+      var modPath = UserDataSanitizer.Sanitize(mod?.ModDirectory.Path ?? "an unknown location");
       var duration = DateTime.Now - __state;
       if (__exception == null) {
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + (mod?.DisplayName ?? "Unknown mod") + ": Started from " + (mod?.ModDirectory.Path ?? "an unknown location") + " in " + duration);
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + displayName + ": Started from " + modPath + " in " + duration);
       } else {
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + (mod?.DisplayName ?? "Unknown mod") + ": Failed to start from " + (mod?.ModDirectory.Path ?? "an unknown location") + " after " + duration);
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + displayName + ": Failed to start from " + modPath + " after " + duration);
       }
     }
   }

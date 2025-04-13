@@ -100,6 +100,7 @@
     <Compile Include="SingletonSystemPatch.cs" />
     <Compile Include="WorkshopRandomNeedApplierPatch.cs" />
     <Compile Include="WorldEntitiesLoaderPatcher.cs" />
+    <Compile Include="UserDataSanitizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="manifest.json">
