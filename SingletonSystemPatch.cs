@@ -35,14 +35,14 @@ namespace Mods.MoreModLogs {
           yield return new CodeInstruction(OpCodes.Dup);
           yield return new CodeInstruction(OpCodes.Ldvirtftn, instruction.operand);
           yield return new CodeInstruction(OpCodes.Newobj, typeof(Action).GetConstructors()[0]);
-          yield return new CodeInstruction(OpCodes.Call, typeof(SingletonSystemPatch).GetMethod(nameof(Wrap), BindingFlags.Static | BindingFlags.NonPublic));
+          yield return new CodeInstruction(OpCodes.Call, typeof(SingletonSystemPatch).GetMethod(nameof(ErrorReporter), BindingFlags.Static | BindingFlags.NonPublic));
           continue;
         }
         yield return instruction;
       }
     }
 
-    private static void Wrap(Action fn) {
+    private static void ErrorReporter(Action fn) {
       var start = DateTime.Now;
       try {
         fn();
