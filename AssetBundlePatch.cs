@@ -19,7 +19,7 @@ namespace Mods.MoreModLogs {
       if (__exception == null && __result != null) {
         Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + "AssetBundle.LoadFromFile(" + Path.GetFileName(path) + ") executed in " + duration);
       } else {
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + "AssetBundle.LoadFromFile(" + Path.GetFileName(path) + ") failed after " + duration);
+        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + "AssetBundle.LoadFromFile(" + Path.GetFileName(path) + ") failed after " + duration);
       }
     }
   }

@@ -21,7 +21,7 @@ namespace Mods.MoreModLogs {
       }
       catch {
         var duration = DateTime.Now - start;
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + ModName + ": Failed to start from " + modPath + " after " + duration);
+        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + ModName + ": Failed to start from " + modPath + " after " + duration);
         throw;
       }
       {
