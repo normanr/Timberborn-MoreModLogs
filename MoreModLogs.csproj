@@ -53,6 +53,10 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ModManagerScene.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.Versioning">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Versioning.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Harmony">
       <HintPath>Harmony/0Harmony.dll</HintPath>
       <Private>false</Private>
