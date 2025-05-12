@@ -3,6 +3,7 @@ using UnityEngine;
 using HarmonyLib;
 using Timberborn.Modding;
 using Timberborn.ModManagerScene;
+using System.Linq;
 
 namespace Mods.MoreModLogs {
 
@@ -10,7 +11,21 @@ namespace Mods.MoreModLogs {
   [HarmonyPatch("StartMod")]
   static class ModCodeStarterPatch {
 
-    static void Prefix(Mod mod, out DateTime __state) {
+    static bool initalized;
+
+    private static void FirstRun(ModRepository modRepository) {
+      Debug.Log("Minimum Game Versions:");
+      foreach (var mod in modRepository.EnabledMods
+                          .OrderBy((mod) => mod.Manifest.MinimumGameVersion.Numeric)) {
+        Debug.Log("- " + mod.Manifest.MinimumGameVersion.Numeric + " - " + mod.Manifest.Name);
+      }
+    }
+
+    static void Prefix(Mod mod, ModRepository ____modRepository, out DateTime __state) {
+      if (!initalized) {
+        FirstRun(____modRepository);
+        initalized = true;
+      }
       __state = DateTime.Now;
     }
 

@@ -81,6 +81,10 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SingletonSystem.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.Versioning">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Versioning.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Timberborn.WorldPersistence">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.WorldPersistence.dll</HintPath>
       <Private>false</Private>
