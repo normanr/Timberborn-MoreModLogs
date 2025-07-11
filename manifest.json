@@ -1,6 +1,6 @@
 {
   "Name": "More Mod Logs",
-  "Version": "0.1.7",
+  "Version": "0.1.8",
   "Id": "MoreModLogs",
   "MinimumGameVersion": "0.7.1.0",
   "Description": "Additional logging for code that loads mods",
