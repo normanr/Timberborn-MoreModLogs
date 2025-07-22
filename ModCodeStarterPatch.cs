@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using HarmonyLib;
 using Timberborn.Modding;
 using Timberborn.ModManagerScene;
-using System.Linq;
 
 namespace Mods.MoreModLogs {
 
@@ -15,8 +16,11 @@ namespace Mods.MoreModLogs {
 
     private static void FirstRun(ModRepository modRepository) {
       Debug.Log("Minimum Game Versions:");
+      var comparer = Comparer<Timberborn.Versioning.Version>.Create(
+        (x, y) => x.IsEqualOrHigherThan(y) ? y.IsEqualOrHigherThan(x) ? 0 : 1 : -1
+      );
       foreach (var mod in modRepository.EnabledMods
-                          .OrderBy((mod) => mod.Manifest.MinimumGameVersion.Numeric)) {
+                          .OrderBy((mod) => mod.Manifest.MinimumGameVersion, comparer)) {
         Debug.Log("- " + mod.Manifest.MinimumGameVersion.Numeric + " - " + mod.Manifest.Name);
       }
     }
