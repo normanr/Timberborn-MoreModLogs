@@ -81,6 +81,10 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.PrefabSystem.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.SelectionSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SelectionSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Timberborn.SingletonSystem">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SingletonSystem.dll</HintPath>
       <Private>false</Private>
@@ -110,6 +114,7 @@
     <Compile Include="ModCodeStarterPatch.cs" />
     <Compile Include="SpecServicePatch.cs" />
     <Compile Include="AssetBundlePatch.cs" />
+    <Compile Include="SelectableObjectPatch.cs" />
     <Compile Include="SingletonSystemPatch.cs" />
     <Compile Include="WorkshopRandomNeedApplierPatch.cs" />
     <Compile Include="WorldEntitiesLoaderPatcher.cs" />
