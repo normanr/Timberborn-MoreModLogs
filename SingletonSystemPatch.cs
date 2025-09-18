@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using UnityEngine;
@@ -12,33 +13,40 @@ namespace Mods.MoreModLogs {
 
     public static IEnumerable<MethodBase> TargetMethods() {
       var sls = AccessTools.TypeByName("Timberborn.SingletonSystem.SingletonLifecycleService");
-      return new List<MethodBase> {
+      var tms = AccessTools.TypeByName("Timberborn.TickSystem.TickableSingletonService+MeteredSingleton");
+      return [
         sls.Method("LoadSingletons"),
         sls.Method("LoadNonSingletons"),
         sls.Method("PostLoadSingletons"),
         sls.Method("PostLoadNonSingletons"),
         sls.Method("UnloadSingletons"),
-      };
+        tms.Method("Tick")
+      ];
     }
 
     static IEnumerable<CodeInstruction> Transpiler(MethodBase __originalMethod, IEnumerable<CodeInstruction> instructions) {
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + ModStarter.ModName + ": Transpiling " + __originalMethod.DeclaringType + "." +  __originalMethod.Name);
       foreach (var instruction in instructions) {
         // C# loader.Load()
         // IL callvirt instance void[Timberborn.SingletonSystem] Timberborn.SingletonSystem.ILoadableSingleton::Load()
-        if (instruction.opcode == OpCodes.Callvirt) {
-          // C# SingletonSystemPatch.Wrap(loader.Loader())
-          // IL dup
-          // IL ldvirtftn instance void [Timberborn.SingletonSystem]Timberborn.SingletonSystem.ILoadableSingleton::Load()
-          // IL newobj instance void [mscorlib]System.Action::.ctor(object, native int)
-          // IL call void Mods.MoreModLogs.SingletonSystemPatch::Wrap(class [mscorlib]System.Action)
-          yield return new CodeInstruction(OpCodes.Dup);
-          yield return new CodeInstruction(OpCodes.Ldvirtftn, instruction.operand);
-          yield return new CodeInstruction(OpCodes.Newobj, typeof(Action).GetConstructors()[0]);
-          yield return new CodeInstruction(OpCodes.Call, typeof(SingletonSystemPatch).GetMethod(nameof(ErrorReporter), BindingFlags.Static | BindingFlags.NonPublic));
+        if (instruction.opcode != OpCodes.Callvirt) {
+          yield return instruction;
           continue;
         }
-        yield return instruction;
+        var mi = (MethodInfo)instruction.operand;
+        if (mi.ReturnType != typeof(void) || mi.GetParameters().Length > 0 || mi.Name == "Resume" || mi.Name == "Pause") {
+          yield return instruction;
+          continue;
+        }
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + ModStarter.ModName + $": Patching {__originalMethod.DeclaringType.FullName.Split('.').Last()}.{__originalMethod.Name} call to {mi.DeclaringType.Name}.{mi.Name}");
+        // C# SingletonSystemPatch.ErrorReporter(loader.Load)
+        // IL dup
+        // IL ldvirtftn instance void [Timberborn.SingletonSystem]Timberborn.SingletonSystem.ILoadableSingleton::Load()
+        // IL newobj instance void [mscorlib]System.Action::.ctor(object, native int)
+        // IL call void Mods.MoreModLogs.SingletonSystemPatch::ErrorReporter(class [mscorlib]System.Action)
+        yield return new CodeInstruction(OpCodes.Dup);
+        yield return new CodeInstruction(OpCodes.Ldvirtftn, instruction.operand);
+        yield return new CodeInstruction(OpCodes.Newobj, typeof(Action).GetConstructors()[0]);
+        yield return new CodeInstruction(OpCodes.Call, typeof(SingletonSystemPatch).GetMethod(nameof(ErrorReporter), BindingFlags.Static | BindingFlags.NonPublic));
       }
     }
 
