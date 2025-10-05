@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using HarmonyLib;
+using Timberborn.PrefabSystem;
 using Timberborn.Workshops;
 
 namespace Mods.MoreModLogs {
@@ -11,7 +12,8 @@ namespace Mods.MoreModLogs {
 
     static void Finalizer(Exception __exception, Manufactory __instance) {
       if (__exception == null) return;
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + "Manufactory.Load failed with an exception");
+      var name = __instance?.GetComponentFast<PrefabSpec>()?.PrefabName ?? "unknown";
+      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"Manufactory.Load({name}) failed with an exception");
       foreach (var recipe in __instance.ProductionRecipes) {
         if (recipe.BackwardCompatibleIds.IsDefault) {
           Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + "  " + recipe.Id + " is missing BackwardCompatibleIds");
