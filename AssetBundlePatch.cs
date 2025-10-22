@@ -7,7 +7,7 @@ namespace Mods.MoreModLogs {
 
   [HarmonyPatch(typeof(AssetBundle))]
   [HarmonyPatch(nameof(AssetBundle.LoadFromFile))]
-  [HarmonyPatch(new Type[] { typeof(string) } )]
+  [HarmonyPatch([typeof(string)] )]
   static class AssetBundlePatch {
 
     static void Prefix(string path, out DateTime __state) {
