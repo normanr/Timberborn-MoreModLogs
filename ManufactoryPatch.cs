@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using HarmonyLib;
-using Timberborn.PrefabSystem;
+using Timberborn.TemplateSystem;
 using Timberborn.Workshops;
 
 namespace Mods.MoreModLogs {
@@ -12,7 +12,7 @@ namespace Mods.MoreModLogs {
 
     static void Finalizer(Exception __exception, Manufactory __instance) {
       if (__exception == null) return;
-      var name = __instance?.GetComponentFast<PrefabSpec>()?.PrefabName ?? "unknown";
+      var name = __instance?.GetComponent<TemplateSpec>()?.TemplateName ?? "unknown";
       Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"Manufactory.Load({name}) failed with an exception");
       foreach (var recipe in __instance.ProductionRecipes) {
         if (recipe.BackwardCompatibleIds.IsDefault) {

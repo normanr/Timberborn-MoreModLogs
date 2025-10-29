@@ -3,6 +3,7 @@ using System.Reflection;
 using UnityEngine;
 using HarmonyLib;
 using System.Linq;
+using Timberborn.BlueprintSystem;
 
 namespace Mods.MoreModLogs {
 
@@ -10,14 +11,14 @@ namespace Mods.MoreModLogs {
   static class SpecServicePatch {
 
     public static MethodBase TargetMethod() {
-      return AccessTools.TypeByName("Timberborn.BlueprintSystem.SpecService").Method("DeserializeBlueprint");
+      return AccessTools.TypeByName("Timberborn.BlueprintSystem.BlueprintDeserializer").Method("DeserializeUnsafe");
     }
 
-    static void Finalizer(IGrouping<string, TextAsset> jsons, Exception __exception) {
+    static void Finalizer(BlueprintFileBundle blueprintFileBundle, Exception __exception) {
       if (__exception == null) return;
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + "Failed to deserialize blueprint for " + jsons.Key);
-      foreach (var item in jsons) {
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + item.name + ":\n" + item.text);
+      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + "Failed to deserialize blueprint for " + blueprintFileBundle.Path);
+      foreach (var item in blueprintFileBundle.Sources.Zip(blueprintFileBundle.Jsons, (name, text) => name + ":\n" + text)) {
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + item);
       }
     }
   }

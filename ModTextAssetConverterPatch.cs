@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using HarmonyLib;
+using Timberborn.ModdingAssets;
 
 namespace Mods.MoreModLogs {
 
@@ -13,9 +14,10 @@ namespace Mods.MoreModLogs {
       return AccessTools.TypeByName("Timberborn.ModdingAssets.ModTextAssetConverter").Method("TryConvert");
     }
 
-    static void Postfix(FileInfo fileInfo, ref TextAsset asset) {
-      if (fileInfo.FullName.ToLower().Split(Path.DirectorySeparatorChar).Contains("localizations")) {
-        asset.name += "_in_" + UserDataSanitizer.Sanitize(fileInfo.FullName);
+    static void Postfix(OrderedFile orderedFile, string path, ref TextAsset asset) {
+      var file = orderedFile.File;
+      if (file.FullName.ToLower().Split(Path.DirectorySeparatorChar).Contains("localizations")) {
+        asset.name += "_in_" + UserDataSanitizer.Sanitize(file.FullName);
       }
     }
   }

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using HarmonyLib;
-using Timberborn.PrefabSystem;
+using Timberborn.TemplateSystem;
 using Timberborn.Workshops;
 using Timberborn.WorkshopsUI;
 
@@ -13,7 +13,7 @@ namespace Mods.MoreModLogs {
 
     static void Finalizer(Exception __exception, Manufactory manufactory) {
       if (__exception == null) return;
-      var name = manufactory?.GetComponentFast<PrefabSpec>()?.PrefabName ?? "unknown";
+      var name = manufactory?.GetComponent<TemplateSpec>()?.TemplateName ?? "unknown";
       Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"ManufactoryRecipeSliderToggleFactory.Create({name}) failed with an exception");
       foreach (var recipe in manufactory.ProductionRecipes) {
         if (recipe.UIIcon == null) {

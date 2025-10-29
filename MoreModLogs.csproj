@@ -57,10 +57,6 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlueprintSystem.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="Timberborn.BlueprintSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlueprintSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
     <Reference Include="Timberborn.Effects">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Effects.dll</HintPath>
       <Private>false</Private>
@@ -89,10 +85,6 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.NeedSpecs.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="Timberborn.PrefabSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.PrefabSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
     <Reference Include="Timberborn.SelectionSystem">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SelectionSystem.dll</HintPath>
       <Private>false</Private>
@@ -103,6 +95,10 @@
     </Reference>
     <Reference Include="Timberborn.SpriteOperations">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SpriteOperations.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.TemplateSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.TemplateSystem.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="Timberborn.Versioning">

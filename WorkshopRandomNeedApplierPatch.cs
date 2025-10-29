@@ -2,8 +2,8 @@
 using System.Reflection;
 using UnityEngine;
 using HarmonyLib;
-using Timberborn.BaseComponentSystem;
-using Timberborn.PrefabSystem;
+using Timberborn.NeedApplication;
+using Timberborn.TemplateSystem;
 
 namespace Mods.MoreModLogs {
 
@@ -14,13 +14,10 @@ namespace Mods.MoreModLogs {
       return AccessTools.TypeByName("Timberborn.NeedApplication.WorkshopRandomNeedApplier").Method("Awake");
     }
 
-    static void Postfix(BaseComponent __instance, BaseComponent ____workshopRandomNeedApplierSpec) {
-      var workshopRandomNeedApplierSpec = Traverse.Create(____workshopRandomNeedApplierSpec);
-      var effects = workshopRandomNeedApplierSpec.Field("_effects");
-      var count = effects.Property<int>("Count").Value;
-      if (count == 0) {
-        var prefabSpec = __instance.GetComponentFast<PrefabSpec>();
-        Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + prefabSpec.PrefabName + " WorkshopRandomNeedApplier has no Effects!?!");
+    static void Postfix(WorkshopRandomNeedApplier __instance, INeedEffectsSpec ____workshopRandomNeedApplierSpec) {
+      if (____workshopRandomNeedApplierSpec.Effects.IsEmpty) {
+        var name = __instance?.GetComponent<TemplateSpec>()?.TemplateName ?? "unknown";
+        Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + name + " WorkshopRandomNeedApplier has no Effects!?!");
       }
     }
 
