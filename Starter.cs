@@ -8,10 +8,6 @@ namespace Mods.MoreModLogs {
 
     internal const string ModName = "More Mod Logs";
 
-    public void StartMod() {
-      StartMod(null);
-    }
-
     public void StartMod(IModEnvironment modEnvironment) {
       var start = DateTime.Now;
       var modPath = UserDataSanitizer.Sanitize(modEnvironment?.ModPath ?? "an unknown location");

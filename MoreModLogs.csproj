@@ -89,6 +89,10 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SelectionSystem.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.SerializationSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SerializationSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Timberborn.SingletonSystem">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SingletonSystem.dll</HintPath>
       <Private>false</Private>
@@ -129,7 +133,8 @@
     <Compile Include="ManufactoryRecipeSliderToggleFactoryPatch.cs" />
     <Compile Include="ModTextAssetConverterPatch.cs" />
     <Compile Include="ModCodeStarterPatch.cs" />
-    <Compile Include="SpecServicePatch.cs" />
+    <Compile Include="BasicDeserializerPatch.cs" />
+    <Compile Include="BlueprintDeserializerPatch.cs" />
     <Compile Include="AssetBundlePatch.cs" />
     <Compile Include="GoodEffectDescriberPatch.cs" />
     <Compile Include="SelectableObjectPatch.cs" />
