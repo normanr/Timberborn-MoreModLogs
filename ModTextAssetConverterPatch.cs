@@ -14,8 +14,8 @@ namespace Mods.MoreModLogs {
       return AccessTools.TypeByName("Timberborn.ModdingAssets.ModTextAssetConverter").Method("TryConvert");
     }
 
-    static void Postfix(OrderedFile orderedFile, string path, ref TextAsset asset) {
-      var file = orderedFile.File;
+    static void Postfix(object orderedFile, ref TextAsset asset) {
+      var file = Traverse.Create(orderedFile).Property<FileInfo>("File").Value;
       if (file.FullName.ToLower().Split(Path.DirectorySeparatorChar).Contains("localizations")) {
         asset.name += "_in_" + UserDataSanitizer.Sanitize(file.FullName);
       }
