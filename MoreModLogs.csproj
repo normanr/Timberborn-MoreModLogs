@@ -29,6 +29,10 @@
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="mscorlib">
+      <HintPath>Timberborn\Timberborn_Data\Managed\mscorlib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="System">
       <HintPath>Timberborn\Timberborn_Data\Managed\System.dll</HintPath>
       <Private>false</Private>
