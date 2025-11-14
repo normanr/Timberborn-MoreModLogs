@@ -139,6 +139,7 @@
     <Compile Include="ModCodeStarterPatch.cs" />
     <Compile Include="BasicDeserializerPatch.cs" />
     <Compile Include="BlueprintDeserializerPatch.cs" />
+    <Compile Include="SerializedObjectReaderWriterPatch.cs" />
     <Compile Include="AssetBundlePatch.cs" />
     <Compile Include="GoodEffectDescriberPatch.cs" />
     <Compile Include="SelectableObjectPatch.cs" />
