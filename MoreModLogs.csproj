@@ -65,6 +65,10 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Effects.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.GameFactionSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.GameFactionSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Timberborn.Goods">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Goods.dll</HintPath>
       <Private>false</Private>
@@ -141,9 +145,11 @@
     <Compile Include="BlueprintDeserializerPatch.cs" />
     <Compile Include="SerializedObjectReaderWriterPatch.cs" />
     <Compile Include="AssetBundlePatch.cs" />
+    <Compile Include="FactionNeedServicePatch.cs" />
     <Compile Include="GoodEffectDescriberPatch.cs" />
     <Compile Include="SelectableObjectPatch.cs" />
     <Compile Include="SingletonSystemPatch.cs" />
+    <Compile Include="ComponentCachePatch.cs" />
     <Compile Include="WorkshopRandomNeedApplierPatch.cs" />
     <Compile Include="WorldEntitiesLoaderPatcher.cs" />
     <Compile Include="UserDataSanitizer.cs" />
