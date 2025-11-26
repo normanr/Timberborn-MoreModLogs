@@ -57,6 +57,14 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BaseComponentSystem.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.BlockObjectTools">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlockObjectTools.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.BlockSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlockSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Timberborn.BlueprintSystem">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlueprintSystem.dll</HintPath>
       <Private>false</Private>
@@ -147,6 +155,8 @@
     <Compile Include="AssetBundlePatch.cs" />
     <Compile Include="FactionNeedServicePatch.cs" />
     <Compile Include="GoodEffectDescriberPatch.cs" />
+    <Compile Include="TextLocalizationWrapperPatch.cs" />
+    <Compile Include="BlockObjectToolPatch.cs" />
     <Compile Include="SelectableObjectPatch.cs" />
     <Compile Include="SingletonSystemPatch.cs" />
     <Compile Include="ComponentCachePatch.cs" />
