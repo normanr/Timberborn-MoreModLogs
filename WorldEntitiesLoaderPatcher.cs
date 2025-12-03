@@ -9,7 +9,9 @@ namespace Mods.MoreModLogs {
   static class WorldEntitiesLoaderPatcher {
 
     public static MethodBase TargetMethod() {
-      return AccessTools.TypeByName("Timberborn.WorldPersistence.WorldEntitiesLoader").Method("LoadEntity");
+      var el = AccessTools.TypeByName("Timberborn.WorldPersistence.EntitiesLoader")  // >= 1.0.5.0
+        ?? AccessTools.TypeByName("Timberborn.WorldPersistence.WorldEntitiesLoader");  // < 1.0.5.0
+      return el.Method("LoadEntity");
     }
 
     static void Finalizer(object serializedEntity, Exception __exception) {

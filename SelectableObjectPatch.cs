@@ -1,18 +1,19 @@
 using System;
 using UnityEngine;
 using HarmonyLib;
+using Timberborn.BaseComponentSystem;
 using Timberborn.SelectionSystem;
 
 namespace Mods.MoreModLogs {
 
     [HarmonyPatch(typeof(SelectableObjectRetriever))]
     [HarmonyPatch(nameof(SelectableObjectRetriever.GetSelectableObject))]
-    [HarmonyPatch([typeof(GameObject)])]
+    [HarmonyPatch([typeof(BaseComponent)])]
     static class SelectableObjectPatch {
 
-        static void Finalizer(GameObject gameObject, Exception __exception) {
+        static void Finalizer(BaseComponent target, Exception __exception) {
             if (__exception == null) return;
-            var obj = gameObject;
+            var obj = target.GameObject;
             var path = obj.name;
             while (obj?.transform?.parent?.gameObject != null)
             {
