@@ -17,7 +17,7 @@ namespace Mods.MoreModLogs {
     private static void FirstRun(ModRepository modRepository) {
       Debug.Log("Minimum Game Versions:");
       var comparer = Comparer<Timberborn.Versioning.Version>.Create(
-        (x, y) => x.IsEqualOrHigherThan(y) ? y.IsEqualOrHigherThan(x) ? 0 : 1 : -1
+        (x, y) => x.IsEqualOrHigherThan(y) ? y.IsEqualOrHigherThan(x) ? x.Numeric.Length.CompareTo(y.Numeric.Length) : 1 : -1
       );
       foreach (var mod in modRepository.EnabledMods
                           .OrderBy((mod) => mod.Manifest.MinimumGameVersion, comparer)) {

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using UnityEngine;
 using HarmonyLib;
 using Timberborn.BlueprintSystem;
@@ -19,18 +18,16 @@ namespace Mods.MoreModLogs {
 
     static void Finalizer(BlueprintFileBundle blueprintFileBundle, Exception __exception) {
       if (__exception == null && _warnings.Count == 0) return;
+      var bundleName = blueprintFileBundle.Path + " (" + string.Join(", ", blueprintFileBundle.Sources) + ")";
       if (__exception != null) {
-        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"Failed to deserialize blueprint for {blueprintFileBundle.Path}");
+        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"Failed to deserialize blueprint for {bundleName}");
       } else if (_warnings.Count > 0) {
-        Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + $"Blueprint deserializer for {blueprintFileBundle.Path} generated warnings:");
+        Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + $"Blueprint deserializer for {bundleName} generated warnings:");
       }
       foreach (var item in _warnings) {
         Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + item);
       }
       _warnings.Clear();
-      foreach (var item in blueprintFileBundle.Sources.Zip(blueprintFileBundle.Jsons, (name, text) => $"JSON from {name}: {text}")) {
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + item);
-      }
     }
   }
 }
