@@ -10,10 +10,14 @@ namespace Mods.MoreModLogs {
   [HarmonyPatch(nameof(BlueprintDeserializer.DeserializeUnsafe))]
   static class BlueprintDeserializerPatch {
 
-    static readonly List<string> _warnings = [];
+    static List<string> _warnings;
+
+    static void Prefix() {
+      _warnings = [];
+    }
 
     static internal void AddWarning(string warning) {
-      _warnings.Add(warning);
+      _warnings?.Add(warning);
     }
 
     static void Finalizer(BlueprintFileBundle blueprintFileBundle, Exception __exception) {
@@ -25,9 +29,9 @@ namespace Mods.MoreModLogs {
         Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + $"Blueprint deserializer for {bundleName} generated warnings:");
       }
       foreach (var item in _warnings) {
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + item);
+        Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + "- " + item);
       }
-      _warnings.Clear();
+      _warnings = null;
     }
   }
 }

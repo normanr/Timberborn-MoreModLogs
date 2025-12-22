@@ -26,7 +26,7 @@ namespace Mods.MoreModLogs {
     [HarmonyPostfix]
     static void DeserializePostfix(SerializedObject serializedObject, Type type) {
       foreach (string property in serializedObject.Properties().Except(type.GetSerializedProperties().Select(p => p.Name))) {
-        BlueprintDeserializerPatch.AddWarning($"- {type.Name} at {string.Join(".", _context)} contains unused field {property}");
+        BlueprintDeserializerPatch.AddWarning($"{type.Name} at {string.Join(".", _context)} contains unused field {property}");
       }
     }
 

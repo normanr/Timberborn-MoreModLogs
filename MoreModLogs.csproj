@@ -41,6 +41,10 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\System.Collections.Immutable.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>Timberborn\Timberborn_Data\Managed\UnityEngine.dll</HintPath>
       <Private>false</Private>
@@ -149,6 +153,7 @@
     <Compile Include="ManufactoryRecipeSliderToggleFactoryPatch.cs" />
     <Compile Include="ModTextAssetConverterPatch.cs" />
     <Compile Include="ModCodeStarterPatch.cs" />
+    <Compile Include="JsonMergerPatch.cs" />
     <Compile Include="BasicDeserializerPatch.cs" />
     <Compile Include="BlueprintDeserializerPatch.cs" />
     <Compile Include="SerializedObjectReaderWriterPatch.cs" />
