@@ -77,6 +77,14 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Effects.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.FactionSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.FactionSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.FactionValidators">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.FactionValidators.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Timberborn.GameFactionSystem">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.GameFactionSystem.dll</HintPath>
       <Private>false</Private>
@@ -159,6 +167,7 @@
     <Compile Include="SerializedObjectReaderWriterPatch.cs" />
     <Compile Include="AssetBundlePatch.cs" />
     <Compile Include="FactionNeedServicePatch.cs" />
+    <Compile Include="FactionSpecValidationServicePatch.cs" />
     <Compile Include="GoodEffectDescriberPatch.cs" />
     <Compile Include="TextLocalizationWrapperPatch.cs" />
     <Compile Include="BlockObjectToolPatch.cs" />
