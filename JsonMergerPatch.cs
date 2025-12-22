@@ -51,7 +51,7 @@ namespace Mods.MoreModLogs {
           continue;
         }
         var oldValue = mergedJson.SelectToken(path);
-        if (oldValue?.Value<string>() == newValue.Value<string>()) {
+        if (oldValue == null || (oldValue.Value<string>() == newValue.Value<string>())) {
           continue;
         }
         BlueprintDeserializerPatch.AddWarning($"{path} has conflicting values: {oldValue} != {newValue}");
