@@ -32,7 +32,7 @@ namespace Mods.MoreModLogs {
 
     [HarmonyPatch(nameof(BasicDeserializer.Deserialize))]
     [HarmonyFinalizer]
-    static void DeserializeFinalizer(Type type) {
+    static void DeserializeFinalizer() {
       if (_context.Count == 1) {
         _context.RemoveAt(0);
       }

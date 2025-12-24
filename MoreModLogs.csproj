@@ -169,6 +169,7 @@
     <Compile Include="FactionNeedServicePatch.cs" />
     <Compile Include="FactionSpecValidationServicePatch.cs" />
     <Compile Include="GoodEffectDescriberPatch.cs" />
+    <Compile Include="PathMeshDrawerPatch.cs" />
     <Compile Include="TextLocalizationWrapperPatch.cs" />
     <Compile Include="BlockObjectToolPatch.cs" />
     <Compile Include="SelectableObjectPatch.cs" />

@@ -3,6 +3,7 @@ using UnityEngine;
 using HarmonyLib;
 using Timberborn.BlueprintSystem;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Mods.MoreModLogs {
 
@@ -28,8 +29,8 @@ namespace Mods.MoreModLogs {
       } else if (_warnings.Count > 0) {
         Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + $"Blueprint deserializer for {bundleName} generated warnings:");
       }
-      foreach (var item in _warnings) {
-        Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + "- " + item);
+      foreach (var item in _warnings.GroupBy(k => k)) {
+        Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + $"- {item.Count()} {item.Key}");
       }
       _warnings = null;
     }

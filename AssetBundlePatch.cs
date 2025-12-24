@@ -10,7 +10,7 @@ namespace Mods.MoreModLogs {
   [HarmonyPatch([typeof(string)] )]
   static class AssetBundlePatch {
 
-    static void Prefix(string path, out DateTime __state) {
+    static void Prefix(out DateTime __state) {
       __state = DateTime.Now;
     }
 
