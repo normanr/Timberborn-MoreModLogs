@@ -1,13 +1,13 @@
 {
-  "Name": "More Mod Logs",
+  "Name": "\u200aMore Mod Logs (requires Harmony)",
   "Version": "0.2.12",
   "Id": "MoreModLogs",
   "MinimumGameVersion": "1.0.0.0",
   "Description": "Additional logging for code that loads mods",
   "RequiredMods": [
-    {
-      "Id": "Harmony",
-      "MinimumVersion": "2.3.3"
-    }
+    // { // Commented out to sort as high as possible in the mod list
+    //   "Id": "Harmony",
+    //   "MinimumVersion": "2.3.3"
+    // }
   ]
 }
