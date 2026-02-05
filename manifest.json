@@ -1,6 +1,6 @@
 {
   "Name": "\u200aMore Mod Logs (requires Harmony)",
-  "Version": "0.2.12",
+  "Version": "0.2.14",
   "Id": "MoreModLogs",
   "MinimumGameVersion": "1.0.0.0",
   "Description": "Additional logging for code that loads mods",

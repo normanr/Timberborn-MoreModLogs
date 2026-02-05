@@ -113,6 +113,14 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.NeedSpecs.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.Planting">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Planting.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.PlantingUI">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.PlantingUI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Timberborn.SelectionSystem">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SelectionSystem.dll</HintPath>
       <Private>false</Private>
@@ -169,6 +177,7 @@
     <Compile Include="FactionNeedServicePatch.cs" />
     <Compile Include="FactionSpecValidationServicePatch.cs" />
     <Compile Include="GoodEffectDescriberPatch.cs" />
+    <Compile Include="PlantingToolPatch.cs" />
     <Compile Include="PathMeshDrawerPatch.cs" />
     <Compile Include="TextLocalizationWrapperPatch.cs" />
     <Compile Include="BlockObjectToolPatch.cs" />
