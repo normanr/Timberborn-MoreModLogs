@@ -93,6 +93,10 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Goods.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.Localization">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Localization.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Timberborn.Modding">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Modding.dll</HintPath>
       <Private>false</Private>
@@ -168,6 +172,7 @@
     <Compile Include="ManufactoryPatch.cs" />
     <Compile Include="ManufactoryRecipeSliderToggleFactoryPatch.cs" />
     <Compile Include="ModTextAssetConverterPatch.cs" />
+    <Compile Include="LocalizationLoaderPatch.cs" />
     <Compile Include="ModCodeStarterPatch.cs" />
     <Compile Include="JsonMergerPatch.cs" />
     <Compile Include="BasicDeserializerPatch.cs" />
