@@ -73,6 +73,18 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlueprintSystem.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.Common">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Common.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.ConstructionMode">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ConstructionMode.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.ConstructionGuidelines">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ConstructionGuidelines.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Timberborn.Effects">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Effects.dll</HintPath>
       <Private>false</Private>
@@ -91,6 +103,10 @@
     </Reference>
     <Reference Include="Timberborn.Goods">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Goods.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.InputSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.InputSystem.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="Timberborn.Localization">
@@ -145,6 +161,26 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.TemplateSystem.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.ToolButtonSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ToolButtonSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.ToolSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ToolSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.ToolSystemUI">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ToolSystemUI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.TutorialSteps">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.TutorialSteps.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Timberborn.TutorialSystem">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.TutorialSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Timberborn.Versioning">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Versioning.dll</HintPath>
       <Private>false</Private>
@@ -178,6 +214,8 @@
     <Compile Include="BasicDeserializerPatch.cs" />
     <Compile Include="BlueprintDeserializerPatch.cs" />
     <Compile Include="SerializedObjectReaderWriterPatch.cs" />
+    <Compile Include="TutorialStageServicePatch.cs" />
+    <Compile Include="BuildingTutorialStepDeserializerPatch.cs" />
     <Compile Include="AssetBundlePatch.cs" />
     <Compile Include="FactionNeedServicePatch.cs" />
     <Compile Include="FactionSpecValidationServicePatch.cs" />
