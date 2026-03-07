@@ -12,12 +12,17 @@ namespace Mods.MoreModLogs {
 
   [HarmonyPatch]
   static class SpecServicePatch {
+    internal static BlueprintSourceService BlueprintSourceService { get; private set; }
 
     public static MethodBase TargetMethod() {
       return AccessTools.TypeByName("Timberborn.BlueprintSystem.SpecService").Method("Load");
     }
 
-    static IEnumerable<CodeInstruction> Transpiler(MethodBase original, IEnumerable<CodeInstruction> instructions) {
+    public static void Prefix(BlueprintSourceService ____blueprintSourceService) {
+      BlueprintSourceService = ____blueprintSourceService;
+    }
+
+    public static IEnumerable<CodeInstruction> Transpiler(MethodBase original, IEnumerable<CodeInstruction> instructions) {
       List<CodeInstruction> newInstructions = [];
       List<CodeInstruction> neighboredValueLoads = [];
       foreach (var instruction in instructions) {
