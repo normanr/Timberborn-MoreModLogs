@@ -214,6 +214,7 @@
     <Compile Include="BasicDeserializerPatch.cs" />
     <Compile Include="BlueprintDeserializerPatch.cs" />
     <Compile Include="SerializedObjectReaderWriterPatch.cs" />
+    <Compile Include="SpecServicePatch.cs" />
     <Compile Include="TutorialStageServicePatch.cs" />
     <Compile Include="BuildingTutorialStepDeserializerPatch.cs" />
     <Compile Include="AssetBundlePatch.cs" />
