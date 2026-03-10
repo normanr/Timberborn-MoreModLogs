@@ -7,7 +7,7 @@ using Timberborn.WorldPersistence;
 namespace Mods.MoreModLogs {
 
   [HarmonyPatch]
-  static class WorldEntitiesLoaderPatcher {
+  static class WorldEntitiesLoaderPatch {
 
     public static MethodBase TargetMethod() {
       var el = AccessTools.TypeByName("Timberborn.WorldPersistence.EntitiesLoader")  // >= 1.0.5.0

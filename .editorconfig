@@ -3,3 +3,6 @@
 csharp_new_line_before_open_brace = none
 csharp_new_line_before_else = false
 indent_size = 2
+
+# IDE0130: Namespace does not match folder structure
+dotnet_style_namespace_match_folder = false
