@@ -12,14 +12,13 @@ namespace Mods.MoreModLogs {
 
   [HarmonyPatch]
   static class SpecServicePatch {
-    internal static BlueprintSourceService BlueprintSourceService { get; private set; }
 
     public static MethodBase TargetMethod() {
       return AccessTools.TypeByName("Timberborn.BlueprintSystem.SpecService").Method("Load");
     }
 
     public static void Prefix(BlueprintSourceService ____blueprintSourceService) {
-      BlueprintSourceService = ____blueprintSourceService;
+      Singletons.BlueprintSourceService = ____blueprintSourceService;
     }
 
     public static IEnumerable<CodeInstruction> Transpiler(MethodBase original, IEnumerable<CodeInstruction> instructions) {
@@ -61,12 +60,12 @@ namespace Mods.MoreModLogs {
       }
     }
 
-    private static SerializedObject ErrorReporter(SerializedObjectReaderWriter serializedObjectReaderWriter, BlueprintFileBundle blueprintBundle) {
+    private static SerializedObject ErrorReporter(SerializedObjectReaderWriter serializedObjectReaderWriter, BlueprintFileBundle blueprintFileBundle) {
       try {
-        return serializedObjectReaderWriter.ReadJsons(blueprintBundle.Jsons);
+        return serializedObjectReaderWriter.ReadJsons(blueprintFileBundle.Jsons);
       }
       catch {
-        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"SpecService.Load of {blueprintBundle.Path} failed");
+        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"SpecService.Load of {blueprintFileBundle.Path} failed");
         throw;
       }
     }

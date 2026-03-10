@@ -12,8 +12,8 @@ namespace Mods.MoreModLogs {
       if (__exception == null) return;
       if (__instance.TryGetTemplate(templateName, out var templateSpec2)) {
         Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"TemplateNameMapper.TryAddTemplate({templateName}) failed with duplicate templates from:");
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"- {SpecServicePatch.BlueprintSourceService?.Get(templateSpec2.Blueprint)?.Path}");
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"- {SpecServicePatch.BlueprintSourceService?.Get(templateSpec.Blueprint)?.Path}");
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"- {Singletons.BlueprintSourceService?.Get(templateSpec2.Blueprint)?.Path}");
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"- {Singletons.BlueprintSourceService?.Get(templateSpec.Blueprint)?.Path}");
       }
     }
 
