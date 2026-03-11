@@ -19,7 +19,7 @@ namespace Mods.MoreModLogs {
     static void Finalizer(object serializedEntity, Exception __exception) {
       if (__exception == null) return;
       var templateName = Traverse.Create(serializedEntity).Property<string>("TemplateName").Value;
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + "WorldEntitiesLoader.LoadEntity(" + templateName + ") failed with an exception");
+      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + "WorldEntitiesLoader.LoadEntity(" + templateName + ") failed with an exception");
     }
 
   }

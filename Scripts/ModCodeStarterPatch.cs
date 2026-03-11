@@ -34,7 +34,7 @@ namespace Mods.MoreModLogs {
         if (grp.Count() == 1) continue;
         Debug.LogWarning(grp.Key + " is loaded more than once:");
         foreach (var mod in grp) {
-          Debug.Log($"- {UserDataSanitizer.Sanitize(mod.ModDirectory.Path)}");
+          Debug.LogWarning($"- {UserDataSanitizer.Sanitize(mod.ModDirectory.Path)}");
         }
       }
       foreach (var mod in modRepository.EnabledMods) {

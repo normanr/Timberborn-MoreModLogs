@@ -14,9 +14,9 @@ namespace Mods.MoreModLogs {
 
     static void Finalizer(Exception __exception, GoodSpec goodSpec) {
       if (__exception == null) return;
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"GoodEffectDescriber.DescribeEffects({goodSpec.Id}) failed with an exception");
+      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"GoodEffectDescriber.DescribeEffects({goodSpec.Id}) failed with an exception");
       if (goodSpec.ConsumptionEffects == null) {
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + "  " + goodSpec.Id + " is missing ConsumptionEffects");
+        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + "  " + goodSpec.Id + " is missing ConsumptionEffects");
       }
     }
 

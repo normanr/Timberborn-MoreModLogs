@@ -13,14 +13,18 @@ namespace Mods.MoreModLogs {
     [HarmonyPostfix()]
     static void LoadPostfix(FactionNeedService __instance) {
       foreach (var group in __instance.Needs.GroupBy(n => n.Id).Where(l => l.Count() > 1)) {
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"*** {group.Key} need is defined multiple times:");
+        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"*** {group.Key} need is defined multiple times:");
         foreach (var need in group) {
           try {
             var bundle = Singletons.BlueprintSourceService?.Get(need.Unmodified.Blueprint);
-            Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"- {need.Blueprint.Name} in {bundle.Path} ({string.Join(", ", bundle.Sources)})");
+            if (bundle != null) {
+              Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"- {bundle.Path} ({string.Join(", ", bundle.Sources)})");
+            } else {
+              Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"- mystery location");
+            }
           }
           catch {
-            Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"- {need.Blueprint.Name} in unknown location");
+            Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"- unknown location");
           }
         }
       }

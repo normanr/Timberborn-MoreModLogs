@@ -16,7 +16,7 @@ namespace Mods.MoreModLogs {
     static void Postfix(Dictionary<string, string> __result) {
       foreach (var (key, value) in __result) {
         if (value.Contains("<s>", StringComparison.InvariantCultureIgnoreCase))
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"*** Localization {key} contains \"<s>\": {value}");
+        Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + $"*** Localization {key} contains \"<s>\": {value}");
       }
     }
   }
