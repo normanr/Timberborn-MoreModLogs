@@ -58,6 +58,10 @@
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlockObjectTools.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Timberborn.BlockObjectToolsUI">
+      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlockObjectToolsUI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="Timberborn.BlockSystem">
       <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlockSystem.dll</HintPath>
       <Private>false</Private>
