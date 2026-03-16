@@ -14,195 +14,36 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="mscorlib">
-      <HintPath>Timberborn\Timberborn_Data\Managed\mscorlib.dll</HintPath>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" />
+    <Reference Include="Timberborn\Timberborn_Data\Managed\mscorlib.dll">
       <Private>false</Private>
     </Reference>
-    <Reference Include="netstandard">
-      <HintPath>Timberborn\Timberborn_Data\Managed\netstandard.dll</HintPath>
+    <Reference Include="Timberborn\Timberborn_Data\Managed\netstandard.dll">
       <Private>false</Private>
     </Reference>
-    <Reference Include="System">
-      <HintPath>Timberborn\Timberborn_Data\Managed\System.dll</HintPath>
+    <Reference Include="Timberborn\Timberborn_Data\Managed\System.dll">
       <Private>false</Private>
     </Reference>
-    <Reference Include="System.Core">
-      <HintPath>Timberborn\Timberborn_Data\Managed\System.Core.dll</HintPath>
+    <Reference Include="Timberborn\Timberborn_Data\Managed\System.Core.dll">
       <Private>false</Private>
     </Reference>
-    <Reference Include="System.Collections.Immutable">
-      <HintPath>Timberborn\Timberborn_Data\Managed\System.Collections.Immutable.dll</HintPath>
+    <Reference Include="Timberborn\Timberborn_Data\Managed\System.Collections.Immutable.dll">
       <Private>false</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Timberborn\Timberborn_Data\Managed\Newtonsoft.Json.dll">
       <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>Timberborn\Timberborn_Data\Managed\UnityEngine.dll</HintPath>
+    <Reference Include="Timberborn\Timberborn_Data\Managed\UnityEngine.*.dll">
       <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>Timberborn\Timberborn_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+    <Reference Include="Timberborn\Timberborn_Data\Managed\Timberborn.*.dll" Publicize="true">
       <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>Timberborn\Timberborn_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.BaseComponentSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BaseComponentSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.BlockObjectTools">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlockObjectTools.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.BlockObjectToolsUI">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlockObjectToolsUI.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.BlockSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlockSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.BlueprintSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.BlueprintSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.Common">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Common.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.ConstructionMode">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ConstructionMode.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.ConstructionGuidelines">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ConstructionGuidelines.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.Effects">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Effects.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.FactionSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.FactionSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.FactionValidators">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.FactionValidators.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.GameFactionSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.GameFactionSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.Goods">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Goods.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.InputSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.InputSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.Localization">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Localization.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.Modding">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Modding.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.ModdingAssets">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ModdingAssets.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.ModManagerScene">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ModManagerScene.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.NeedApplication">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.NeedApplication.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.NeedSpecs">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.NeedSpecs.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.Planting">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Planting.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.PlantingUI">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.PlantingUI.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.SelectionSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SelectionSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.SerializationSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SerializationSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.SingletonSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SingletonSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.SpriteOperations">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.SpriteOperations.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.TemplateSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.TemplateSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.ToolButtonSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ToolButtonSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.ToolSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ToolSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.ToolSystemUI">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.ToolSystemUI.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.TutorialSteps">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.TutorialSteps.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.TutorialSystem">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.TutorialSystem.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.Versioning">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Versioning.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.Workshops">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.Workshops.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.WorkshopsUI">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.WorkshopsUI.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Timberborn.WorldPersistence">
-      <HintPath>Timberborn\Timberborn_Data\Managed\Timberborn.WorldPersistence.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Harmony">
-      <HintPath>Harmony/0Harmony.dll</HintPath>
+    <Reference Include="Harmony/0Harmony.dll">
       <Private>false</Private>
     </Reference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Scripts\" />
-  </ItemGroup>
   <ItemGroup>
     <None Include="manifest.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

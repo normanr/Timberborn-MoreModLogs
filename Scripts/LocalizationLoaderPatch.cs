@@ -1,23 +1,19 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
+using Timberborn.Localization;
 
-namespace Mods.MoreModLogs {
+namespace Mods.MoreModLogs;
 
-  [HarmonyPatch]
-  static class LocalizationLoaderPatch {
+[HarmonyPatch(typeof(LocalizationLoader))]
+[HarmonyPatch(nameof(LocalizationLoader.GetLocalization))]
+static class LocalizationLoaderPatch {
 
-    public static MethodBase TargetMethod() {
-      return AccessTools.TypeByName("Timberborn.Localization.LocalizationLoader").Method("GetLocalization");
-    }
-
-    static void Postfix(Dictionary<string, string> __result) {
-      foreach (var (key, value) in __result) {
-        if (value.Contains("<s>", StringComparison.InvariantCultureIgnoreCase))
-        Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + $"*** Localization {key} contains \"<s>\": {value}");
-      }
+  static void Postfix(Dictionary<string, string> __result) {
+    foreach (var (key, value) in __result) {
+      if (value.Contains("<s>", StringComparison.InvariantCultureIgnoreCase))
+      Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + $"*** Localization {key} contains \"<s>\": {value}");
     }
   }
 }

@@ -1,9 +1,7 @@
 using Timberborn.BlueprintSystem;
 
-namespace Mods.MoreModLogs {
+namespace Mods.MoreModLogs;
 
-  internal class Singletons {
-    internal static BlueprintSourceService BlueprintSourceService;
-  }
-
+internal class Singletons {
+  internal static BlueprintSourceService BlueprintSourceService;
 }
