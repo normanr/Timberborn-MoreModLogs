@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Reflection.Emit;
 using UnityEngine;
 using HarmonyLib;
+using Timberborn.EntityPanelSystem;
+using Timberborn.Metrics;
 using Timberborn.SingletonSystem;
 using Timberborn.TickSystem;
 
@@ -20,6 +22,8 @@ static class SingletonSystemPatch {
     yield return SymbolExtensions.GetMethodInfo(() => default(SingletonLifecycleService).PostLoadNonSingletons);
     yield return SymbolExtensions.GetMethodInfo(() => default(SingletonLifecycleService).UnloadSingletons);
     yield return SymbolExtensions.GetMethodInfo(() => default(TickableSingletonService.MeteredSingleton).Tick);
+    yield return SymbolExtensions.GetMethodInfo(() => default(EntityPanel).UpdateFragments);
+    yield return SymbolExtensions.GetMethodInfo(() => default(DiagnosticFragmentController).UpdateFragments);
   }
 
   static IEnumerable<CodeInstruction> Transpiler(MethodBase __originalMethod, IEnumerable<CodeInstruction> instructions) {
@@ -31,7 +35,13 @@ static class SingletonSystemPatch {
         continue;
       }
       var mi = (MethodInfo)instruction.operand;
-      if (mi.ReturnType != typeof(void) || mi.GetParameters().Length > 0 || mi.Name == "Resume" || mi.Name == "Pause") {
+      if (mi.ReturnType != typeof(void)
+          || mi.GetParameters().Length > 0
+          || mi.Name == nameof(ITimerMetric.Resume)
+          || mi.Name == nameof(ITimerMetric.Pause)
+          || mi.Name == nameof(IDisposable.Dispose)
+          || mi.Name == nameof(DiagnosticFragmentController.UpdateFragments)
+        ) {
         yield return instruction;
         continue;
       }
