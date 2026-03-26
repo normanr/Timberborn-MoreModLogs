@@ -41,7 +41,7 @@ static class ComponentCachePatch {
           continue;
         }
       }
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + ModStarter.ModName + $": Patching {original.DeclaringType.FullName.Split('.').Last()}.{original.Name} call to {mi.DeclaringType.Name}.{mi.Name}");
+      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"{ModStarter.ModName}: Patching {original.DeclaringType.FullName.Split('.').Last()}.{original.Name} call to {mi.DeclaringType.Name}.{mi.Name}");
       if (mi.GetParameters().Length == 0) {
         // C# ComponentCachePatch.ErrorReporter(awakableComponent.Awake)
         // IL dup
@@ -82,13 +82,13 @@ static class ComponentCachePatch {
     }
     catch {
       var duration = DateTime.Now - start;
-      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + fn.Target.GetType() + "." + fn.Method.Name + "() failed after " + duration);
+      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"{fn.Target.GetType()}.{fn.Method.Name}() failed after {duration}");
       throw;
     }
     {
       var duration = DateTime.Now - start;
       if (duration.TotalMilliseconds > 100) {
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + fn.Target.GetType() + "." + fn.Method.Name + "() executed in " + duration);
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"{fn.Target.GetType()}.{fn.Method.Name}() executed in {duration}");
       }
     }
   }
@@ -100,13 +100,13 @@ static class ComponentCachePatch {
     }
     catch {
       var duration = DateTime.Now - start;
-      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + fn.Target.GetType() + "." + fn.Method.Name + $"({obj}) failed after " + duration);
+      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"{fn.Target.GetType()}.{fn.Method.Name}({obj}) failed after {duration}");
       throw;
     }
     {
       var duration = DateTime.Now - start;
       if (duration.TotalMilliseconds > 100) {
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + fn.Target.GetType() + "." + fn.Method.Name + $"({obj}) executed in " + duration);
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"{fn.Target.GetType()}.{fn.Method.Name}({obj}) executed in {duration}");
       }
     }
   }

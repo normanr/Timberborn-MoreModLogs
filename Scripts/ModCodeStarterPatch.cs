@@ -90,9 +90,9 @@ static class ModCodeStarterPatch {
     var modPath = UserDataSanitizer.Sanitize(mod?.ModDirectory.Path ?? "an unknown location");
     var duration = DateTime.Now - __state;
     if (__exception == null) {
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + displayName + ": Started from " + modPath + " in " + duration);
+      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"{displayName}: Started from {modPath} in {duration}");
     } else {
-      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + displayName + ": Failed to start from " + modPath + " after " + duration);
+      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"{displayName}: Failed to start from {modPath} after {duration}");
     }
   }
 }

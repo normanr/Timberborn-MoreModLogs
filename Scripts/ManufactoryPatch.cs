@@ -16,7 +16,7 @@ static class ManufactoryPatch {
     Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"Manufactory.Load({name}) failed with an exception");
     foreach (var recipe in __instance.ProductionRecipes) {
       if (recipe.BackwardCompatibleIds.IsDefault) {
-        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + "  " + recipe.Id + " is missing BackwardCompatibleIds");
+        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"  {recipe.Id} is missing BackwardCompatibleIds");
       }
     }
   }

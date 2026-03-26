@@ -18,12 +18,12 @@ internal class ModStarter : IModStarter {
     }
     catch {
       var duration = DateTime.Now - start;
-      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + ModName + ": Failed to start from " + modPath + " after " + duration);
+      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"{ModName}: Failed to start from {modPath} after {duration}");
       throw;
     }
     {
       var duration = DateTime.Now - start;
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + ModName + ": Started from " + modPath + " in " + duration);
+      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"{ModName}: Started from {modPath} in {duration}");
     }
   }
 }

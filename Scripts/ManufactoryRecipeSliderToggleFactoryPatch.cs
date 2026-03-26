@@ -17,7 +17,7 @@ static class ManufactoryRecipeSliderToggleFactoryPatch {
     Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"ManufactoryRecipeSliderToggleFactory.Create({name}) failed with an exception");
     foreach (var recipe in manufactory.ProductionRecipes) {
       if (recipe.UIIcon == null) {
-        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + "  " + recipe.Id + " has null UIIcon");
+        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"  {recipe.Id} has null UIIcon");
       }
     }
   }

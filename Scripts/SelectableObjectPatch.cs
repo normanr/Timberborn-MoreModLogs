@@ -19,6 +19,6 @@ static class SelectableObjectPatch {
       obj = obj?.transform?.parent?.gameObject;
       path = obj.name + "." + path;
     }
-    Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + "SelectableObject component not found on object with path " + path);
+    Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"SelectableObject component not found on object with path {path}");
   }
 }

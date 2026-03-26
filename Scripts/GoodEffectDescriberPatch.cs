@@ -16,7 +16,7 @@ static class GoodEffectDescriberPatch {
     if (__exception == null) return;
     Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"GoodEffectDescriber.DescribeEffects({goodSpec.Id}) failed with an exception");
     if (goodSpec.ConsumptionEffects == null) {
-      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + "  " + goodSpec.Id + " is missing ConsumptionEffects");
+      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"  {goodSpec.Id} is missing ConsumptionEffects");
     }
   }
 

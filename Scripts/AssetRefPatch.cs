@@ -19,7 +19,7 @@ public static class AssetRefPatch {
       }
       catch (Exception) {
         var duration = DateTime.Now - startTime;
-        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + "AssetRef(" + path + ").Value failed after " + duration);
+        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"AssetRef({path}).Value failed after {duration}");
         throw;
       }
     });

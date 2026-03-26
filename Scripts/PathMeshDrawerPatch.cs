@@ -19,7 +19,7 @@ public static class PathMeshDrawerPatch {
   private const byte AlternativeBuilding = 4;
 
   public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
-    Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + ModStarter.ModName + $": Patching PathMeshDrawer.Add");
+    Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"{ModStarter.ModName}: Patching PathMeshDrawer.Add");
     if ((Nothing != PathMeshConnectionKeys.Nothing) ||
         (Path != PathMeshConnectionKeys.Path) ||
         (AlternativePath != PathMeshConnectionKeys.AlternativePath) ||
@@ -81,6 +81,6 @@ public static class PathMeshDrawerPatch {
 
   private static void LogWarning(object message, byte down, byte left, byte up, byte right) {
     var variant = ConvertKeyToChar(down) + ConvertKeyToChar(left) + ConvertKeyToChar(up) + ConvertKeyToChar(right);
-    Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + ModStarter.ModName + $": {variant}: {message}");
+    Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss ") + $"{ModStarter.ModName}: {variant}: {message}");
   }
 }

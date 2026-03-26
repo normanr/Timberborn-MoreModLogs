@@ -35,7 +35,7 @@ static class SingletonSystemPatch {
         yield return instruction;
         continue;
       }
-      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + ModStarter.ModName + $": Patching {__originalMethod.DeclaringType.FullName.Split('.').Last()}.{__originalMethod.Name} call to {mi.DeclaringType.Name}.{mi.Name}");
+      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"{ModStarter.ModName}: Patching {__originalMethod.DeclaringType.FullName.Split('.').Last()}.{__originalMethod.Name} call to {mi.DeclaringType.Name}.{mi.Name}");
       // C# SingletonSystemPatch.ErrorReporter(loader.Load)
       // IL dup
       // IL ldvirtftn instance void [Timberborn.SingletonSystem]Timberborn.SingletonSystem.ILoadableSingleton::Load()
@@ -55,13 +55,13 @@ static class SingletonSystemPatch {
     }
     catch {
       var duration = DateTime.Now - start;
-      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + fn.Target.GetType() + "." + fn.Method.Name + "() failed after " + duration);
+      Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"{fn.Target.GetType()}.{fn.Method.Name}() failed after {duration}");
       throw;
     }
     {
       var duration = DateTime.Now - start;
       if (duration.TotalMilliseconds > 100) {
-        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + fn.Target.GetType() + "." + fn.Method.Name + "() executed in " + duration);
+        Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"{fn.Target.GetType()}.{fn.Method.Name}() executed in {duration}");
       }
     }
   }
