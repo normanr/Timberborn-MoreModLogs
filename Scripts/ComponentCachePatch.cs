@@ -80,10 +80,10 @@ static class ComponentCachePatch {
     try {
       fn();
     }
-    catch {
+    catch (Exception ex) {
       var duration = DateTime.Now - start;
       Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"{fn.Target.GetType()}.{fn.Method.Name}() failed after {duration}");
-      throw;
+      throw new TargetInvocationException($"{fn.Target.GetType()}.{fn.Method.Name}() failed", ex);
     }
     {
       var duration = DateTime.Now - start;
@@ -98,10 +98,10 @@ static class ComponentCachePatch {
     try {
       fn(obj);
     }
-    catch {
+    catch (Exception ex) {
       var duration = DateTime.Now - start;
       Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"{fn.Target.GetType()}.{fn.Method.Name}({obj}) failed after {duration}");
-      throw;
+      throw new TargetInvocationException($"{fn.Target.GetType()}.{fn.Method.Name}({obj}) failed", ex);
     }
     {
       var duration = DateTime.Now - start;

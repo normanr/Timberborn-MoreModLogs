@@ -53,10 +53,10 @@ static class SingletonSystemPatch {
     try {
       fn();
     }
-    catch {
+    catch (Exception ex) {
       var duration = DateTime.Now - start;
       Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"{fn.Target.GetType()}.{fn.Method.Name}() failed after {duration}");
-      throw;
+      throw new TargetInvocationException($"{fn.Target.GetType()}.{fn.Method.Name}() failed", ex);
     }
     {
       var duration = DateTime.Now - start;

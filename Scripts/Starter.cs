@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using UnityEngine;
 using HarmonyLib;
 using Timberborn.ModManagerScene;
@@ -16,10 +17,10 @@ internal class ModStarter : IModStarter {
       var harmony = new Harmony(ModName);
       harmony.PatchAll();
     }
-    catch {
+    catch (Exception ex) {
       var duration = DateTime.Now - start;
       Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"{ModName}: Failed to start from {modPath} after {duration}");
-      throw;
+      throw new TargetInvocationException($"{ModName}: Failed to start from {modPath}", ex);
     }
     {
       var duration = DateTime.Now - start;

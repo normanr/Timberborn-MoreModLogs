@@ -49,9 +49,9 @@ static class SpecServicePatch {
     try {
       return serializedObjectReaderWriter.ReadJsons(blueprintFileBundle.Jsons);
     }
-    catch {
+    catch (Exception ex) {
       Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"SpecService.Load of {blueprintFileBundle.Path} ({string.Join(", ", blueprintFileBundle.Sources)}) failed");
-      throw;
+      throw new TargetInvocationException($"SpecService.Load of {blueprintFileBundle.Path} ({string.Join(", ", blueprintFileBundle.Sources)}) failed", ex);
     }
   }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using UnityEngine;
 using HarmonyLib;
 using Timberborn.BlueprintSystem;
@@ -17,10 +18,10 @@ public static class AssetRefPatch {
       try {
         return lazyAsset.Value;
       }
-      catch (Exception) {
+      catch (Exception ex) {
         var duration = DateTime.Now - startTime;
         Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"AssetRef({path}).Value failed after {duration}");
-        throw;
+        throw new TargetInvocationException($"AssetRef({path}).Value failed", ex);
       }
     });
   }
