@@ -43,11 +43,24 @@ static class BlueprintDeserializerPatch {
   [HarmonyPatch(nameof(BlueprintDeserializer.DeserializeSpecs))]
   [HarmonyPrefix()]
   static void DeserializeSpecsPrefix(SerializedObject serializedObject) {
-    foreach (string item in serializedObject.Properties())
-    {
+    foreach (string item in serializedObject.Properties()) {
       var obj = serializedObject.GetSerialized(item);
       if (obj is not SerializedObject) {
         AddWarning($"*** {item} has the wrong type: {obj.GetType()} != SerializedObject");
+      }
+      if (!Constants.IdFields.TryGetValue(item, out var id)) {
+        continue;
+      }
+      try {
+        var newValue = ((SerializedObject)obj).GetSerialized(id);
+        if (newValue == null) {
+          AddWarning($"*** {item}.{id} is null");
+        } else if (newValue is not string) {
+          AddWarning($"*** {item}.{id} has the wrong type: {newValue?.GetType()} != string");
+        }
+      }
+      catch (Exception ex) {
+        AddWarning($"*** {item}.{id} is missing/invalid: {ex.Message}");
       }
     }
   }
