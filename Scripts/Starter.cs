@@ -14,6 +14,11 @@ internal class ModStarter : IModStarter {
     var start = DateTime.Now;
     var modPath = UserDataSanitizer.Sanitize(modEnvironment?.ModPath ?? "an unknown location");
     try {
+      var ha = typeof(Harmony).Assembly;
+      var product = ha.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
+      var company = ha.GetCustomAttribute<AssemblyCompanyAttribute>()?.Company;
+      var version = ha.GetName().Version;
+      Debug.Log(DateTime.Now.ToString("HH:mm:ss ") + $"{ModName}: Using {product} ({version}) by {company}");
       var harmony = new Harmony(ModName);
       harmony.PatchAll();
     }
