@@ -20,8 +20,9 @@ public static class AssetRefPatch {
       }
       catch (Exception ex) {
         var duration = DateTime.Now - startTime;
-        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"AssetRef({path}).Value failed after {duration}");
-        throw new TargetInvocationException($"AssetRef({path}).Value failed", ex);
+        var t = lazyAsset.GetType().GenericTypeArguments[0].Name;
+        Debug.LogError(DateTime.Now.ToString("HH:mm:ss ") + $"AssetRef<{t}>({path}).Asset failed after {duration}");
+        throw new TargetInvocationException($"AssetRef<{t}>({path}).Asset failed", ex);
       }
     });
   }
